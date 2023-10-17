@@ -47,7 +47,14 @@ const formlistReducer=(state = intialState, action : FormListPropsType)=>{
                 data :[],
                 statusMessage:'No Result Found',
                 isFetchLoading:false
-            }        
+            }
+        case FormActionConstant.RESET_DATA_FIELDS:
+            return {
+                ...state,
+                data :[],
+                statusMessage : '',
+                isFetchLoading:false
+            }            
         default : return state    
         
     }

@@ -2,7 +2,7 @@ import React,{useEffect, useState, ChangeEvent} from "react";
 import "../../assets/pageStyle.scss";
 import { topicOption } from "../../constant/searchConstant";
 import { useNavigate } from 'react-router-dom';
-import { formText,firstNameText, lastNameText, topicText } from "../../constant/data";
+import { formText, firstNameText, lastNameText, topicText } from "../../constant/data";
 
 type formPropeType ={
     formlistState: { data: any; statusMessage: string; };
@@ -27,10 +27,8 @@ const FormComponent=(props:formPropeType)=>{
     }
 
     useEffect(()=>{
-        if(data && data.length > 0){
-            navigate("/searchResultlist"); 
-        }
-    },[data, navigate])
+        
+    },[])
 
     const onSubmitChangeHandler=()=>{
         const data = {
@@ -40,6 +38,10 @@ const FormComponent=(props:formPropeType)=>{
             userlastName : state.lastName
         }
         props.getSearchList(data);
+    }
+
+    if(data && data.length > 0){
+        navigate("/searchResultlist"); 
     }
 
     const otherTopic = state.others !=='' || state.topic !=='';

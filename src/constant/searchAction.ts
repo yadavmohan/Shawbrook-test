@@ -10,5 +10,7 @@ export default {
     SELECTED_ITEM_LIST_SUCCESS : 'selected_item_list_success',
     SELECTED_ITEM_LIST_ERROR : 'selected_item_list_error',
 
-    UPDATE_SELECTED_ITEM_LIST : 'update_selected_item_list'
+    UPDATE_SELECTED_ITEM_LIST : 'update_selected_item_list',
+
+    RESET_DATA_FIELDS : 'reset_data_fields'
 }

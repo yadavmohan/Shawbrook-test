@@ -51,7 +51,8 @@ const SearchResultList=(props:any)=>{
     }
 
     const redirecttoHomePage =()=> {
-            navigate("/");
+        navigate("/");
+        props.resetdatalistapi()
     }
 
     const nodataRender = (

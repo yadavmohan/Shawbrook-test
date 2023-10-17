@@ -11,7 +11,7 @@ type SelectedPropsType = {
         lastName : string;
         topic : string
     }
-
+    resetdatalistapi(): unknown;
 }
 
 const SelectedResultList=(props:SelectedPropsType)=>{
@@ -21,6 +21,7 @@ const SelectedResultList=(props:SelectedPropsType)=>{
 
     const onBackHandler=()=>{
         navigate("/"); 
+        props.resetdatalistapi()
     }
     
     return(
