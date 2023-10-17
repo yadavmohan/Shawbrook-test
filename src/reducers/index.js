@@ -1,4 +1,4 @@
-import { combineReducers } from "redux"
+import { combineReducers } from '@reduxjs/toolkit';
 import formlistReducer from "./searchResultReducers";
 import formGridReducers from "./selectedResultlistReducer"
 

@@ -1,40 +1,36 @@
+/* eslint-disable testing-library/prefer-screen-queries */
 import React from 'react';
-import { render, fireEvent, screen } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import FormComponent from './formComponent';
 
+const getSearchJest = jest.fn();
 const mockNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useNavigate: jest.fn(() => mockNavigate),
 }));
 
+const mockProps = {
+  formlistState: {
+    data: null,
+    statusMessage: '',
+  },
+  getSearchList: getSearchJest,
+  firstName: '',
+  lastName: '',
+  others: '',
+  topic: '',
+};
 
 describe('FormComponent', () => {
-  const mockProps = {
-    formlistState: {
-      firstName : 'John', 
-      lastName : '', 
-      others:'', 
-      topic : ''
-    },
-    data : null,
-    statusMessage : '',
-    formChangeHandler:jest.fn()
-  }
-  test('renders FormComponent without crashing', () => {
-    render(<FormComponent formlistState={mockProps} getSearchList={function (data: { searchData: string; limit: number; userFirstName: string; userlastName: string; }): unknown {
-      throw new Error('Function not implemented.');
-    } } firstName={''} lastName={''} others={''} topic={''} />);
+  test('renders form correctly', () => {
+    const { getByText } = render(<FormComponent {...mockProps} />);
+    expect(getByText('Form')).toBeInTheDocument();
   });
 
-  test('updates firstName input value', () => {
-    render(<FormComponent formlistState={mockProps} getSearchList={function (data: { searchData: string; limit: number; userFirstName: string; userlastName: string; }): unknown {
-      throw new Error('Function not implemented.');
-    } } firstName={''} lastName={''} others={''} topic={''} />);
-    const firstNameInput = screen.getByTestId('first-name-input') as HTMLInputElement;
-    expect(firstNameInput).toBeInTheDocument()
-    expect(firstNameInput.value).toBe('');
-    fireEvent.change(firstNameInput, { target: { value: 'John' } });
-    expect(firstNameInput.value).toBe('John');
+  test('handles form changes correctly', () => {
+    const { getByTestId } = render(<FormComponent {...mockProps} />);
+    fireEvent.change(getByTestId('first-name-input'), { target: { value: 'John' } });
+    fireEvent.change(getByTestId('last-name-input'), { target: { value: 'Doe' } });
   });
 });

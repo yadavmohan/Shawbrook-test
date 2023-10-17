@@ -60,11 +60,11 @@ const FormComponent=(props:formPropeType)=>{
                     </div>
                     <div className="form-row">
                         <label htmlFor="Last Name" className="form-label">{lastNameText}<sub className="requireastrik">*</sub></label>
-                        <input type="text" name="Last Name" value={state.lastName} className="input-style" autoComplete="off" placeholder="Enter your last name" onChange={formChangeHandler("lastName")} required />
+                        <input type="text" name="Last Name" value={state.lastName} data-testid="last-name-input" className="input-style" autoComplete="off" placeholder="Enter your last name" onChange={formChangeHandler("lastName")} required />
                     </div>
                     <div className="form-row">
                         <label htmlFor="Topic" className="form-label">{topicText}<sub className="requireastrik">*</sub></label>
-                        <select placeholder="select-topic" name="Topic" className="formSelect-box" value={state.topic} onChange={formChangeHandler("topic")} required>
+                        <select placeholder="select-topic" name="Topic" className="formSelect-box" value={state.topic} data-tesid="topic-input" onChange={formChangeHandler("topic")} required>
                             {topicOption.map((topiclist)=>{
                                 return <option key={topiclist}>{topiclist}</option>
                             })}
@@ -72,9 +72,9 @@ const FormComponent=(props:formPropeType)=>{
                     </div>
                     { state.topic === "others" && <div className="form-row">
                         <label htmlFor="Others" className="form-label">Others<sub className="requireastrik">*</sub></label>
-                        <input type="text"  name="Others" value={state.others} autoComplete="off" className="input-style othersOption" placeholder="Enter your text here" onChange={formChangeHandler("others")} />
+                        <input type="text"  name="Others" value={state.others}  data-testid="Others" autoComplete="off" className="input-style othersOption" placeholder="Enter your text here" onChange={formChangeHandler("others")} />
                     </div>}
-                    <button type="submit" onClick={onSubmitChangeHandler} className={`search-button btn-button ${checkEmptyhandler ? '' : 'disabledButtob'}`} disabled={checkEmptyhandler ? false : true}>Search</button>
+                    <button type="submit" onClick={onSubmitChangeHandler} className={`search-button btn-button ${checkEmptyhandler ? '' : 'disabledButtob'}`} data-testid="Search" disabled={checkEmptyhandler ? false : true}>Search</button>
                 </div>
             </div>
         </div>
