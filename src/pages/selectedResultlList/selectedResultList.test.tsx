@@ -6,13 +6,14 @@ import { BrowserRouter } from 'react-router-dom';
 describe('SelectedResultList component', () => {
   const mockProps = {
     formlistState: {
-      firstName: 'John',
-      lastName: 'Doe',
+      firstName: 'Mohan',
+      lastName: 'Yadav',
       topic: 'USA'
     },
     formDetailsState: {
       selectedData: ['image1.jpg', 'image2.jpg']
-    }
+    },
+    resetdatalistapi:jest.fn()
   };
 
   test('renders without crashing', () => {

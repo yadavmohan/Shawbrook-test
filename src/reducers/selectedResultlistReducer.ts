@@ -1,7 +1,14 @@
 import FormActionConstant from "../constant/searchAction";
 import { noResultText } from "../constant/data";
 
-const intialState = {
+type resultInitialPropType = {
+    selectedData: string[],
+    statusMessage : string,
+    isLoading : boolean
+} 
+
+
+const intialState:resultInitialPropType = {
     selectedData : [],
     statusMessage:'',
     isLoading : false
@@ -13,7 +20,7 @@ type ResultPropsType = {
         data : [],
     }
 }
-const fromGridReducers=(state = intialState, action : ResultPropsType)=>{
+const fromGridReducers=(state:resultInitialPropType = intialState, action : ResultPropsType) : resultInitialPropType=>{
     const {payload} = action;
     switch(action.type){
         case FormActionConstant.SELECTED_ITEM_LIST_SUCCESS:

@@ -1,12 +1,19 @@
-import React,{useEffect, useState, ChangeEvent} from "react";
+import React,{ useState, ChangeEvent} from "react";
 import "../../assets/pageStyle.scss";
 import { topicOption } from "../../constant/searchConstant";
 import { useNavigate } from 'react-router-dom';
 import { formText, firstNameText, lastNameText, topicText } from "../../constant/data";
 
+type getsearchDataProps = {
+    searchData: string; 
+    limit: number; 
+    userFirstName: string; 
+    userlastName: string; 
+}
+
 type formPropeType ={
     formlistState: { data: any; statusMessage: string; };
-    getSearchList(data: { searchData: string; limit: number; userFirstName: string; userlastName: string; }): unknown;
+    getSearchList(data: getsearchDataProps): unknown;
     firstName: string;
     lastName: string;
     others: string;
@@ -25,10 +32,6 @@ const FormComponent=(props:formPropeType)=>{
             [fieldName] : value
         }))
     }
-
-    useEffect(()=>{
-        
-    },[])
 
     const onSubmitChangeHandler=()=>{
         const data = {
@@ -64,7 +67,7 @@ const FormComponent=(props:formPropeType)=>{
                     </div>
                     <div className="form-row">
                         <label htmlFor="Topic" className="form-label">{topicText}<sub className="requireastrik">*</sub></label>
-                        <select placeholder="select-topic" name="Topic" className="formSelect-box" value={state.topic} data-tesid="topic-input" onChange={formChangeHandler("topic")} required>
+                        <select data-testid="topic-input" placeholder="select-topic" name="Topic" className="formSelect-box" value={state.topic}  onChange={formChangeHandler("topic")} required>
                             {topicOption.map((topiclist)=>{
                                 return <option key={topiclist}>{topiclist}</option>
                             })}
@@ -72,9 +75,9 @@ const FormComponent=(props:formPropeType)=>{
                     </div>
                     { state.topic === "others" && <div className="form-row">
                         <label htmlFor="Others" className="form-label">Others<sub className="requireastrik">*</sub></label>
-                        <input type="text"  name="Others" value={state.others}  data-testid="Others" autoComplete="off" className="input-style othersOption" placeholder="Enter your text here" onChange={formChangeHandler("others")} />
+                        <input type="text"  name="Others" value={state.others}  data-testid="others-input" autoComplete="off" className="input-style othersOption" placeholder="Enter your text here" onChange={formChangeHandler("others")} />
                     </div>}
-                    <button type="submit" onClick={onSubmitChangeHandler} className={`search-button btn-button ${checkEmptyhandler ? '' : 'disabledButtob'}`} data-testid="Search" disabled={checkEmptyhandler ? false : true}>Search</button>
+                    <button type="submit" onClick={onSubmitChangeHandler}  className={`search-button btn-button ${checkEmptyhandler ? '' : 'disabledButtob'}`} data-testid="Search" disabled={checkEmptyhandler ? false : true}>Search</button>
                 </div>
             </div>
         </div>

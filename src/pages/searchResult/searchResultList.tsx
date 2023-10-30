@@ -6,14 +6,18 @@ import EditIcon from "../../assets/images/edit_1159633.png";
 import ImagePopupModalComponent from "../popupModalComponent";
 import { noDataText, rejectText, acceptText, nextText } from "../../constant/data";
 
-type ImagePropType = {
+type SearchResultProps = {
+    resetdatalistapi(): unknown;
+    removeChangeHandler(updatedValues: string[]): unknown;
+    onSelectedItemChangeHandler(selectedData: string[]): unknown;
+    formlistState: { data: any; topic: string; };
     id: number;
     urls: {
       small: string;
     };
 };
 
-const SearchResultList=(props:any)=>{
+const SearchResultList=(props:SearchResultProps)=>{
     const navigate = useNavigate();
     const { data, topic } = props.formlistState;
     const [selectedData,setSelectedData]= useState<string[]>([]);
@@ -27,7 +31,7 @@ const SearchResultList=(props:any)=>{
     }
 
     const onChangeRejectHandler=(imageId:number)=>{
-        let updatedValues = data.filter((item: {id : number})=>item?.id !== imageId)
+        let updatedValues = data.filter((cardItem : any)=>cardItem.id !== imageId)
         props.removeChangeHandler(updatedValues)
     }
 
@@ -70,8 +74,8 @@ const SearchResultList=(props:any)=>{
                 </div>
                 { data && data.length > 0 ? <ul>
                     {
-                        data.map((item:ImagePropType)=>{
-                            return <li key ={item.id} className={selectedData.includes(item?.urls?.small) ? 'selected' : ''}>
+                        data.map((item:SearchResultProps)=>{
+                            return <li key ={item?.id} className={selectedData.includes(item?.urls?.small) ? 'selected' : ''}>
                                 {selectedData.includes(item?.urls?.small) ? <div className="edit-block" onClick={()=>onSelectedEditItemChangeHandler(item?.urls?.small)}><img alt="" src={EditIcon} /></div> : ''}
                                 <div className="grid-cloumn">
                                     <div className="images-box" onClick={()=>onModalShowHandler(item?.urls?.small)}>

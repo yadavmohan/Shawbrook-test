@@ -1,6 +1,15 @@
 import FormActionConstant from "../constant/searchAction";
 
-const intialState = {
+type intialStatePropType ={
+    data : string[],
+    statusMessage : string,
+    isFetchLoading : boolean,
+    firstName : string,
+    lastName : string,
+    topic : string
+}
+
+const intialState : intialStatePropType = {
     data : [],
     statusMessage:'',
     isFetchLoading : false,
@@ -19,7 +28,7 @@ type FormListPropsType = {
     }
 }
 
-const formlistReducer=(state = intialState, action : FormListPropsType)=>{
+const formlistReducer=(state :intialStatePropType = intialState, action : FormListPropsType):intialStatePropType=>{
     const {payload} = action;
     switch(action.type){
         case FormActionConstant.FETCH_UNPLASH_IMAGE_SUCESS:
