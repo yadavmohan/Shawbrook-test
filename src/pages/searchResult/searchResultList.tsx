@@ -1,7 +1,7 @@
 import React,{ useState } from "react";
 import "../../assets/pageStyle.scss";
 import { useNavigate } from "react-router-dom";
-import SelectIcon from "../../assets/images/correct_4436481.png";
+import SelectIcon from "../../assets/images/correct_4436481.png"
 import EditIcon from "../../assets/images/edit_1159633.png";
 import ImagePopupModalComponent from "../popupModalComponent";
 import { noDataText, rejectText, acceptText, nextText } from "../../constant/data";
