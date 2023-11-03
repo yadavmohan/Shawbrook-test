@@ -1,5 +1,6 @@
 import { render, fireEvent,screen } from '@testing-library/react';
 import FormComponent from './formComponent';
+import React from 'react';
 
 const mockNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
