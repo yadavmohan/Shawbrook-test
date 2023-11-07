@@ -6,7 +6,7 @@
       "dom.iterable",
       "esnext"
     ],
-    "types": ["node","react", "react-dom"],
+    "types": ["node","jest","react","react-dom","express"],
     "typeRoots": ["node_modules/@types", "./src/types"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -15,7 +15,7 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,

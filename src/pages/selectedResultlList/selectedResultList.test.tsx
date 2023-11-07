@@ -1,5 +1,6 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { describe, test, expect } from '@jest/globals';
 import SelectedResultList from './selectedResultList'; 
 import { BrowserRouter } from 'react-router-dom';
 
@@ -13,16 +14,17 @@ describe('SelectedResultList component', () => {
     formDetailsState: {
       selectedData: ['image1.jpg', 'image2.jpg']
     },
-    resetdatalistapi:jest.fn()
+    resetdatalistapi: jest.fn()
   };
 
   test('renders without crashing', () => {
-    const { container } = render(
+    render(
       <BrowserRouter>
         <SelectedResultList {...mockProps} />
       </BrowserRouter>
     );
-    expect(container).toBeInTheDocument();
+    const backButton = screen.getByText('Goto home page');
+    expect(backButton).toBeInTheDocument();
   });
 
   test('triggers navigation when back button is clicked', () => {
@@ -31,5 +33,8 @@ describe('SelectedResultList component', () => {
         <SelectedResultList {...mockProps} />
       </BrowserRouter>
     );
+
+    const backButton = screen.getByText('Goto home page');
+    fireEvent.click(backButton);
   });
 });
