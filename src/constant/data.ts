@@ -8,8 +8,7 @@ export const lastNameText ="Last Name";
 export const topicText = "Topic";
 export const noResultText = "No Result Found";
 
-
-type getsearchDataProps = {
+export type getsearchDataProps = {
     searchData: string; 
     limit: number; 
     userFirstName: string; 
