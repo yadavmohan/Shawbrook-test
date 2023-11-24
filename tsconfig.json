@@ -1,13 +1,8 @@
 {
   "compilerOptions": {
     "target": "ES6",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "types": ["node","jest","react","react-dom","express"],
-    "typeRoots": ["node_modules/@types", "./src/types"],
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "types": ["node", "jest", "react", "react-dom", "express"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -23,7 +18,5 @@
     "jsx": "react",
     "allowImportingTsExtensions": true
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }

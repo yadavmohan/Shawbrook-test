@@ -1,7 +1,7 @@
-import { render, fireEvent,screen } from '@testing-library/react';
-import FormComponent from './formComponent';
 import React from 'react';
-import { describe, expect } from '@jest/globals';
+import { render, fireEvent, screen } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
+import FormComponent from './formComponent';
 
 const mockNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
@@ -38,7 +38,7 @@ describe('FormComponent', () => {
     fireEvent.change(otherInput, { target: { value: 'USA' } });
   });
 
- test.only('handles form submission correctly',() => {
+  test('handles form submission correctly', () => {
     render(<FormComponent {...mockProps} />);
     const searchButton = screen.getByRole('button');
     fireEvent.submit(searchButton);

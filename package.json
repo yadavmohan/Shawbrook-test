@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "-": "^0.0.1",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@reduxjs/toolkit": "^1.9.7",
-    "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/user-event": "^13.5.0",
     "@types/node": "^16.18.58",
     "axios": "^1.5.1",
@@ -17,6 +17,7 @@
     "react-router-dom": "^6.17.0",
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2",
+    "save-dev": "^0.0.1-security",
     "svgo": "^3.0.2",
     "typescript": "^3.2.1",
     "web-vitals": "^2.1.4"
@@ -53,6 +54,7 @@
     "@babel/preset-env": "^7.23.2",
     "@babel/preset-react": "^7.22.15",
     "@svgr/webpack": "^6.2.1",
+    "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^14.0.0",
     "@types/express": "^4.17.20",
     "@types/http-proxy-middleware": "^1.0.0",

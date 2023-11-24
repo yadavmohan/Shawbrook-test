@@ -1,23 +1,14 @@
-// const { createProxyMiddleware } = require('http-proxy-middleware');
-
-// module.exports = function (app: any) {
-//   app.use(
-//     '/napi',
-//     createProxyMiddleware({
-//       target: 'https://unsplash.com',
-//       changeOrigin: true,
-//       pathRewrite:""
-//     })
-//   );
-// };
+// setupProxy.ts
 import { Express } from 'express';
-import { createProxyMiddleware, Options } from 'http-proxy-middleware';
-//const { createProxyMiddleware, Options } = require('http-proxy-middleware');
+import { createProxyMiddleware } from 'http-proxy-middleware';
+
 module.exports = function (app: Express) {
-  const proxyConfig: Options = {
+  const proxyConfig = {
     target: 'https://unsplash.com',
-    secure: false,
     changeOrigin: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
   };
 
   app.use(
@@ -25,3 +16,16 @@ module.exports = function (app: Express) {
     createProxyMiddleware(proxyConfig)
   );
 };
+
+
+// const { createProxyMiddleware } = require('http-proxy-middleware')
+
+// module.exports = function (app:any) {
+//   app.use(
+//     '/api',
+//     createProxyMiddleware({
+//       target: 'https://unsplash.com',
+//       changeOrigin: true,
+//     }),
+//   )
+// }

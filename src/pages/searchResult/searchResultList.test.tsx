@@ -1,5 +1,5 @@
 import React from 'react';
-import { describe, expect } from '@jest/globals';
+import '@testing-library/jest-dom/extend-expect';
 import { render, screen } from '@testing-library/react';
 import SearchResultList from './searchResultList';
 
