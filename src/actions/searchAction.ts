@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Dispatch } from "redux";
 import FormActionConstant from "../constant/searchAction";
-import { getsearchDataProps } from "../constant/data";
+import { getsearchDataProps } from "../types/dataType";
 
 export const getSearchList = (payload: getsearchDataProps) => async (dispatch : Dispatch) => {
   try {
