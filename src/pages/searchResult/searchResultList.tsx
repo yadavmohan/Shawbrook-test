@@ -6,15 +6,18 @@ import EditIcon from "../../assets/images/edit_1159633.png";
 import ImagePopupModalComponent from "../popupModalComponent";
 import { noDataText, rejectText, acceptText, nextText } from "../../constant/data";
 
+type ImageUrl = {
+  id: number;
+  urls: {
+    small: string;
+  };
+};
+
 type SearchResultProps = {
     resetdatalistapi:()=>void;
     removeChangeHandler : (updatedValues: string[])=>void;
     onSelectedItemChangeHandler :(selectedData: string[])=> void;
     formlistState: { data: any; topic: string; };
-    id: number;
-    urls: {
-      small: string;
-    };
 };
 
 const SearchResultList=(props:SearchResultProps)=>{
@@ -52,6 +55,7 @@ const SearchResultList=(props:SearchResultProps)=>{
 
     const onModalCloseHandler=()=>{
         setModalpop(false)
+        setImageUrl("")
     }
 
     const redirecttoHomePage =()=> {
@@ -74,7 +78,7 @@ const SearchResultList=(props:SearchResultProps)=>{
                 </div>
                 { data && data.length > 0 ? <ul>
                     {
-                        data.map((item:SearchResultProps)=>{
+                        data.map((item:ImageUrl)=>{
                             return <li key ={item?.id} className={selectedData.includes(item?.urls?.small) ? 'selected' : ''}>
                                 {selectedData.includes(item?.urls?.small) ? <div className="edit-block" onClick={()=>onSelectedEditItemChangeHandler(item?.urls?.small)}><img alt="" src={EditIcon} /></div> : ''}
                                 <div className="grid-cloumn">

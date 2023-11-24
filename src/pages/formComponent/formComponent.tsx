@@ -3,16 +3,10 @@ import "../../assets/pageStyle.scss";
 import { topicOption } from "../../constant/searchConstant";
 import { useNavigate } from 'react-router-dom';
 import { formText, firstNameText, lastNameText, topicText } from "../../constant/data";
-
-type getsearchDataProps = {
-    searchData: string; 
-    limit: number; 
-    userFirstName: string; 
-    userlastName: string; 
-}
+import { getsearchDataProps, intialStatePropType } from "../../constant/data";
 
 type formPropeType ={
-    formlistState: { data: any; statusMessage: string; };
+    formlistState: intialStatePropType;
     getSearchList : (data: getsearchDataProps)=>void;
     firstName: string;
     lastName: string;

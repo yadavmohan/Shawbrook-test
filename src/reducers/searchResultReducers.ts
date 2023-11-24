@@ -1,13 +1,5 @@
 import FormActionConstant from "../constant/searchAction";
-
-type intialStatePropType ={
-    data : string[],
-    statusMessage : string,
-    isFetchLoading : boolean,
-    firstName : string,
-    lastName : string,
-    topic : string
-}
+import { intialStatePropType } from "../constant/data";
 
 const intialState : intialStatePropType = {
     data : [],
