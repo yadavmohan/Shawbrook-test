@@ -10,7 +10,7 @@ jest.mock('react-router-dom', () => ({
 }));
 
 describe('SearchResultList', () => {
-  test('onClick event for accept button', () => {
+  test('Search Result form', () => {
     const data = [
       { id: 1, urls: { small: 'image1.jpg' } },
       { id: 2, urls: { small: 'image2.jpg' } },
@@ -30,7 +30,8 @@ describe('SearchResultList', () => {
       <SearchResultList
         formlistState={formlistState}
         onSelectedItemChangeHandler={onSelectedItemChangeHandler}
-        removeChangeHandler={removeChangeHandler} resetdatalistapi={function (): unknown {
+        removeChangeHandler={removeChangeHandler} 
+        resetdatalistapi={function (): unknown {
           throw new Error('Function not implemented.');
         }} 
         id={0} 
@@ -39,6 +40,7 @@ describe('SearchResultList', () => {
         }}        
         />
     );
+    expect(screen.getByText('Search Result for Your Favorites Topic')).toBeInTheDocument();
     expect(screen.getAllByText('Accept')[0]).toBeInTheDocument();
   });
 });

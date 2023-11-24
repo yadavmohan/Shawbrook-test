@@ -3,7 +3,7 @@ import "../../assets/pageStyle.scss";
 import { topicOption } from "../../constant/searchConstant";
 import { useNavigate } from 'react-router-dom';
 import { formText, firstNameText, lastNameText, topicText } from "../../constant/data";
-import { formPropeType } from "../../constant/data";
+import { formPropeType } from "../../types/dataType";
 
 const FormComponent=(props:formPropeType)=>{
     const navigate = useNavigate();

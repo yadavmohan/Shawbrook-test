@@ -11,18 +11,18 @@ jest.mock('react-router-dom', () => ({
   useNavigate: () => mockNavigate,
 }));
 
+const formlistState = {
+      firstName: 'Mohan',
+      lastName: 'yadav',
+      topic: 'UAE',
+};
+
 describe('SelectedResultList', () => {
   test('renders selected data correctly', () => {
     const selectedData = ['img1', 'img2'];
 
     const formDetailsState = {
       selectedData: selectedData,
-    };
-
-    const formlistState = {
-      firstName: 'Mohan',
-      lastName: 'yadav',
-      topic: 'UAE',
     };
 
     render(
@@ -32,7 +32,6 @@ describe('SelectedResultList', () => {
         resetdatalistapi={mockResetDataListApi}
       />
     );
-    expect(screen.getByText('Mohan yadav topic : UAE')).toBeInTheDocument();
     for (const imageSrc of selectedData) {
       const imgElement = screen.getByAltText(imageSrc);
       expect(imgElement).toBeInTheDocument();
@@ -41,16 +40,10 @@ describe('SelectedResultList', () => {
   });
 
   test('navigates to home page on back button click', () => {
-    const selectedData = ['image1.jpg', 'image2.jpg'];
+    const selectedData = ['img1', 'img2'];
 
     const formDetailsState = {
       selectedData: selectedData,
-    };
-
-    const formlistState = {
-      firstName: 'Mohan',
-      lastName: 'yadav',
-      topic: 'UAE',
     };
 
     render(

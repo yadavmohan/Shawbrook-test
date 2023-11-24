@@ -39,13 +39,19 @@
     }
     .grid-box{
         border:1px solid $lightGray;
-        width:350px; 
+        width:500px; 
         padding:2% 3%;
         background-color:#f9f9f9;
         -webkit-box-shadow: 0px 0px 6px 0px rgba(173,157,173,1);
         -moz-box-shadow: 0px 0px 6px 0px rgba(173,157,173,1);
         box-shadow: 0px 0px 6px 0px rgba(173,157,173,1);
         border-radius:4px;
+    }
+    .item-description{
+        text-transform: capitalize;
+        margin-top:15px;
+        text-align: left;
+        height:28px;
     }
     .form-row{
         width:100%; 
@@ -168,7 +174,7 @@
         max-width:80%; margin: 0 auto;
     }
     .search-category-list{
-        font-size:35px; 
+        font-size:30px; 
         color:#fff; 
         text-transform: capitalize; 
         padding:30px 0;
@@ -236,12 +242,13 @@
         background-color:$blackColor; 
         color:$whiteColor; 
         border-radius:4px; 
-        padding:8px 12px; 
+        padding:3px 20px 5px; 
         border:0; 
         cursor: pointer; 
-        margin:20px 0; 
-        width:120px;
-        &.redirectButton{width: auto;}
+        position: absolute;
+        top:38px;
+        right:2px;
+        &.redirectButton{width: auto; position: relative;}
         span{
             display: inline-block; 
             font-size:20px; 
@@ -278,6 +285,7 @@
             background-color:$whiteColor; 
             border-radius:4px; 
             padding:5%; 
+            min-height:100px;
             text-align: left;
             .s-text{
                 font-size:13px;
@@ -302,6 +310,7 @@
         display: flex; 
         align-items: center; 
         justify-content: center; 
+        z-index:2;
         bottom:0;
         .imagebgOverlay{
             background-color:rgb(0, 0, 0, .5); 

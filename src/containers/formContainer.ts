@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import FormComponent from "../pages/formComponent/formComponent";
 import { getSearchList } from "../actions/searchAction";
-import { getsearchDataProps } from "../constant/data";
+import { getsearchDataProps } from "../types/dataType";
 
 type DispatchProps = {
     getSearchList: (data: any) => void; 

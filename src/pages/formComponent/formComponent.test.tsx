@@ -2,7 +2,7 @@ import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import FormComponent from './formComponent';  
-import { formPropeType } from "../../constant/data";
+import { formPropeType } from "../../types/dataType";
 
 const mockNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
@@ -30,7 +30,7 @@ const mockProps = {
 describe('FormComponent', () => {
   test('renders form', () => {
     render(<FormComponent {...mockProps} />);
-    expect(screen.getByText('Form')).toBeInTheDocument();
+    expect(screen.getByText('Discover Images for Your Preferred Topics')).toBeInTheDocument();
   });
 
   test('handles form changes correctly', () => {

@@ -1,5 +1,5 @@
 import FormActionConstant from "../constant/searchAction";
-import { intialStatePropType } from "../constant/data";
+import { intialStatePropType } from "../types/dataType";
 
 const intialState : intialStatePropType = {
     data : [],
