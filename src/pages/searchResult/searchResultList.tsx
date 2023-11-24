@@ -18,6 +18,8 @@ type SearchResultProps = {
     removeChangeHandler : (updatedValues: string[])=>void;
     onSelectedItemChangeHandler :(selectedData: string[])=> void;
     formlistState: { data: any; topic: string; };
+    id: number; 
+    urls: { small: string; }; 
 };
 
 const SearchResultList=(props:SearchResultProps)=>{

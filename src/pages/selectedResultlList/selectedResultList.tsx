@@ -37,7 +37,7 @@ const SelectedResultList=(props:SelectedPropsType)=>{
                         selectedData.map((item:string,index:number)=>{
                             return (
                                 <li key={index}>
-                                   <div className="selected-images"><img alt="" src={item} /></div> 
+                                   <div className="selected-images"><img alt={`img${index+1}`} src={item} /></div> 
                                    <div className="selected-data">
                                         <div className="s-text">{firstName}</div>
                                         <div className="s-text">{lastName}</div>

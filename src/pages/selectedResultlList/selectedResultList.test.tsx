@@ -1,40 +1,67 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import SelectedResultList from './selectedResultList'; 
-import { BrowserRouter } from 'react-router-dom';
+import SelectedResultList from './selectedResultList';
 
-describe('SelectedResultList component', () => {
-  const mockProps = {
-    formlistState: {
+const mockNavigate = jest.fn();
+const mockResetDataListApi = jest.fn();
+
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useNavigate: () => mockNavigate,
+}));
+
+describe('SelectedResultList', () => {
+  test('renders selected data correctly', () => {
+    const selectedData = ['img1', 'img2'];
+
+    const formDetailsState = {
+      selectedData: selectedData,
+    };
+
+    const formlistState = {
       firstName: 'Mohan',
-      lastName: 'Yadav',
-      topic: 'USA'
-    },
-    formDetailsState: {
-      selectedData: ['image1.jpg', 'image2.jpg']
-    },
-    resetdatalistapi: jest.fn()
-  };
+      lastName: 'yadav',
+      topic: 'UAE',
+    };
 
-  test('renders without crashing', () => {
     render(
-      <BrowserRouter>
-        <SelectedResultList {...mockProps} />
-      </BrowserRouter>
+      <SelectedResultList
+        formDetailsState={formDetailsState}
+        formlistState={formlistState}
+        resetdatalistapi={mockResetDataListApi}
+      />
     );
-    const backButton = screen.getByText('Goto home page');
-    expect(backButton).toBeInTheDocument();
+    expect(screen.getByText('Mohan yadav topic : UAE')).toBeInTheDocument();
+    for (const imageSrc of selectedData) {
+      const imgElement = screen.getByAltText(imageSrc);
+      expect(imgElement).toBeInTheDocument();
+      expect(imgElement).toHaveAttribute('src', imageSrc);
+    }
   });
 
-  test('triggers navigation when back button is clicked', () => {
-    render(
-      <BrowserRouter>
-        <SelectedResultList {...mockProps} />
-      </BrowserRouter>
-    );
+  test('navigates to home page on back button click', () => {
+    const selectedData = ['image1.jpg', 'image2.jpg'];
 
-    const backButton = screen.getByText('Goto home page');
-    fireEvent.click(backButton);
+    const formDetailsState = {
+      selectedData: selectedData,
+    };
+
+    const formlistState = {
+      firstName: 'Mohan',
+      lastName: 'yadav',
+      topic: 'UAE',
+    };
+
+    render(
+      <SelectedResultList
+        formDetailsState={formDetailsState}
+        formlistState={formlistState}
+        resetdatalistapi={mockResetDataListApi}
+      />
+    );
+    fireEvent.click(screen.getByText('Goto home page'));
+    expect(mockNavigate).toHaveBeenCalledWith('/');
+    expect(mockResetDataListApi).toHaveBeenCalled();
   });
 });

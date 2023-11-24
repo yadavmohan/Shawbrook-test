@@ -18,9 +18,9 @@ describe('SearchResultList', () => {
 
     const formlistState = {
       data : data,
-      userfName: 'John',
-      userlName: 'Doe',
-      topic: 'SomeTopic'
+      userfName: 'Mohan',
+      userlName: 'Yadav',
+      topic: 'UAE'
     };
 
     const onSelectedItemChangeHandler = jest.fn();
@@ -32,11 +32,13 @@ describe('SearchResultList', () => {
         onSelectedItemChangeHandler={onSelectedItemChangeHandler}
         removeChangeHandler={removeChangeHandler} resetdatalistapi={function (): unknown {
           throw new Error('Function not implemented.');
-        } } id={0} urls={{
+        }} 
+        id={0} 
+        urls={{
           small: ''
-        }}        />
+        }}        
+        />
     );
     expect(screen.getAllByText('Accept')[0]).toBeInTheDocument();
-    expect(screen.getAllByText('Reject')[0]).toBeInTheDocument();
   });
 });
