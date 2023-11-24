@@ -13,7 +13,7 @@ type getsearchDataProps = {
 
 type formPropeType ={
     formlistState: { data: any; statusMessage: string; };
-    getSearchList(data: getsearchDataProps): unknown;
+    getSearchList : (data: getsearchDataProps)=>void;
     firstName: string;
     lastName: string;
     others: string;

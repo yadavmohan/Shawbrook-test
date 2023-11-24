@@ -7,9 +7,9 @@ import ImagePopupModalComponent from "../popupModalComponent";
 import { noDataText, rejectText, acceptText, nextText } from "../../constant/data";
 
 type SearchResultProps = {
-    resetdatalistapi(): unknown;
-    removeChangeHandler(updatedValues: string[]): unknown;
-    onSelectedItemChangeHandler(selectedData: string[]): unknown;
+    resetdatalistapi:()=>void;
+    removeChangeHandler : (updatedValues: string[])=>void;
+    onSelectedItemChangeHandler :(selectedData: string[])=> void;
     formlistState: { data: any; topic: string; };
     id: number;
     urls: {
