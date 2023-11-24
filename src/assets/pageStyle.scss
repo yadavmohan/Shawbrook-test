@@ -52,6 +52,7 @@
         margin-top:15px;
         text-align: left;
         height:28px;
+        overflow: hidden;
     }
     .form-row{
         width:100%; 
@@ -293,6 +294,7 @@
                 font-family:'Montserrat'; 
                 text-transform: capitalize; 
                 margin-bottom:10px; 
+                &.s-descition{height:28px; overflow: hidden;}
                 &:last-child{
                     margin-bottom:0;
                 }

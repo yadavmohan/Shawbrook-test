@@ -31,7 +31,7 @@ const SelectedResultList = (props: SelectedPropsType) => {
             <div className="selected-data-list">
                 <div className="search-category-list">
                     <div className="backBtn" onClick={onBackHandler}><span>&#11013;</span><span className="backhomeText">Goto home page</span></div>
-                    Selected Favorite Topics : {topic}
+                    Your Selected Favorite Topics : {topic}
                 </div>
                 <ul>
                     {selectedData.map((item: SelectedDataItem, index: number) => {
@@ -41,7 +41,7 @@ const SelectedResultList = (props: SelectedPropsType) => {
                                 <div className="selected-data">
                                     <div className="s-text">{firstName}</div>
                                     <div className="s-text">{lastName}</div>
-                                    <div className="s-text">{typeof item === 'string' ? item : item.imagedec}</div>
+                                    <div className="s-text s-descition">{typeof item === 'string' ? item : item.imagedec}</div>
                                 </div>
                             </li>
                         );
