@@ -2,6 +2,8 @@ import axios from "axios";
 import { Dispatch } from "redux";
 import FormActionConstant from "../constant/searchAction";
 import { getsearchDataProps } from "../types/dataType";
+import { CLIENTID } from "../constant/data";
+const base_url = "https://api.unsplash.com";
 
 export const getSearchList = (payload: getsearchDataProps) => async (dispatch : Dispatch) => {
   try {
@@ -11,9 +13,12 @@ export const getSearchList = (payload: getsearchDataProps) => async (dispatch : 
       type: FormActionConstant.FETCH_UNPLASH_IMAGE_INITIATE,
     });
 
-    const response = await axios.get(
-      `/napi/search/photos?query=${searchData}&per_page=${limit}`
-    );
+    const response = await axios.get(`${base_url}/search/photos`, {
+            params: { query: searchData, per_page: limit},
+            headers: {
+                Authorization: `Client-ID ${CLIENTID}`
+            }
+        });
     const { data, status } = response;
     if (status === 200) {
       if (data?.results.length === 0) {
